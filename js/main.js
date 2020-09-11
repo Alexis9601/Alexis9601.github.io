@@ -15,11 +15,11 @@ function getMovies(searchText) {
             if (response.data.Response != 'False') {
                 $.each(movies, (index, movie) => {
                     output += `
-                      <div class="col-md-3" id="${movie.imdbID}">
+                      <div class="col-md-3">
                         <div class="well text-center">
                           <img src="${movie.Poster}">
                           <h5>${movie.Title}</h5>
-                          <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+                          <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#" id="${movie.imdbID}">Movie Details</a>
                         </div>
                       </div>
                     `;
@@ -62,7 +62,7 @@ function getMovie() {
             <img src="${movie.Poster}" class="thumbnail">
           </div>
           <div class="col-md-8">
-            <h2>${movie.Title}</h2>
+            <h2 id="${movieId}">${movie.Title}</h2>
             <ul class="list-group">
               <li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
               <li class="list-group-item"><strong>Released:</strong> ${movie.Released}</li>
